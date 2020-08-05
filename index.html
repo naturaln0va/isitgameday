@@ -26,7 +26,7 @@
 				margin-right: auto;
 			}
 			#boolean {
-				font-size: 18em;
+				font-size: 16em;
 				text-align: center;
 			}
 			#current {
@@ -34,6 +34,15 @@
 				position: fixed;
 				bottom: 10px;
 				left: 10px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					color: #eee;
+					background-color: #222;
+				}
+				#current {
+					color: #777;
+				}
 			}
 		</style>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
