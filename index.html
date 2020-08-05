@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Is it Game Day yet?</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: monospace;
+			}
+			.container { 
+				display: table;
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+			}
+			.middle {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.content {
+				margin-left: auto;
+				margin-right: auto;
+				width: 420px;
+			}
+			#boolean {
+				font-size: 20em;
+				text-align: center;
+			}
+			#current {
+				color: #aaa;
+				position: fixed;
+				bottom: 10px;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="middle">
+				<div class="content">
+					<h1 id="boolean"></h1>
+				</div>
+			</div>
+		</div>
+		<footer id="current"></footer>
+		<script>
+			var boolElem = document.getElementById("boolean");
+			var currentElem = document.getElementById("current");
+			
+			const now = new Date();
+			const targetDayInteger = 5; // 5 is friday
+			
+			var formattedDate = now.toLocaleDateString("en-US", {
+				weekday: "short",
+				year: "numeric",
+				month: "short",
+				day: "2-digit"
+			});
+
+			currentElem.innerHTML = formattedDate;
+			boolElem.innerHTML = now.getDay() == targetDayInteger ? "YES" : "NO";
+		</script>
+	</body>
+</html>
