@@ -35,6 +35,30 @@
 				bottom: 10px;
 				left: 10px;
 			}
+			.celebrate {
+				background: rgb(0,219,222);
+				background: -moz-linear-gradient(90deg, rgba(0,219,222,1) 0%, rgba(255,0,215,1) 50%, rgba(0,219,222,1) 100%);
+				background: -webkit-linear-gradient(90deg, rgba(0,219,222,1) 0%, rgba(255,0,215,1) 50%, rgba(0,219,222,1) 100%);
+				background: linear-gradient(90deg, rgba(0,219,222,1) 0%, rgba(255,0,215,1) 50%, rgba(0,219,222,1) 100%);
+				background-size: 200% auto;
+				color: #000;
+				background-clip: text;
+				text-fill-color: transparent;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				-webkit-animation: shine 1s linear infinite;
+				animation: shine 1s linear infinite;
+			}
+			@-webkit-keyframes shine {
+				to {
+					background-position: 200% center;
+				}
+			}
+			@keyframes shine {
+				to {
+					background-position: 200% center;
+				}
+			}
 			@media (prefers-color-scheme: dark) {
 				body {
 					color: #eee;
@@ -94,6 +118,10 @@
 
 			currentElem.innerHTML = formattedDate;
 			boolElem.innerHTML = now.getDay() == targetDayInteger ? "YES" : "NO";
+			
+			if (now.getDay() == targetDayInteger) {
+				boolElem.classList.add("celebrate");
+			}
 		</script>
 	</body>
 </html>
