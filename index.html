@@ -17,6 +17,9 @@
 				height: 100%;
 				width: 100%;
 			}
+			.hidden {
+				display: none;
+			}
 			.middle {
 				display: table-cell;
 				vertical-align: middle;
@@ -24,10 +27,13 @@
 			.content {
 				margin-left: auto;
 				margin-right: auto;
+				text-align: center;
 			}
 			#boolean {
 				font-size: 16em;
 				text-align: center;
+				margin: 0;
+				padding: 0;
 			}
 			#current {
 				color: #aaa;
@@ -97,12 +103,16 @@
 		<div class="container">
 			<div class="middle">
 				<div class="content">
+					<img class="hidden" src="parrot.gif" alt="party parrot">
+					<img class="hidden" src="parrot.gif" alt="party parrot">
+					<img class="hidden" src="parrot.gif" alt="party parrot">
 					<h1 id="boolean"></h1>
 				</div>
 			</div>
 		</div>
 		<footer id="current"></footer>
 		<script>
+			var images = document.getElementsByTagName('img');
 			var boolElem = document.getElementById("boolean");
 			var currentElem = document.getElementById("current");
 			
@@ -121,6 +131,9 @@
 			
 			if (now.getDay() == targetDayInteger) {
 				boolElem.classList.add("celebrate");
+				for(var i = 0; i < images.length; i++) {
+					images[i].classList.remove("hidden");
+				}
 			}
 		</script>
 	</body>
